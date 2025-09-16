@@ -2,46 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YouTube RAG Chatbot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
 </head>
 <body>
   <div class="app-container">
-    <header>
-      <h1>YouTube RAG Chatbot</h1>
-      <button id="theme-toggle" title="Toggle dark mode">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-section">
+          <div class="youtube-logo">
+            <svg viewBox="0 0 90 20" preserveAspectRatio="xMidYMid meet">
+              <g>
+                <path d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 2.24288e-07 14.285 0 14.285 0C14.285 0 5.35042 2.24288e-07 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C2.24288e-07 5.35042 0 10 0 10C0 10 2.24288e-07 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5701 5.35042 27.9727 3.12324Z" fill="#FF0000"/>
+                <path d="M11.4253 14.2854L18.8477 10.0004L11.4253 5.71533V14.2854Z" fill="white"/>
+              </g>
+              <g>
+                <path d="M34.6024 13.0036L31.3945 1.41846H34.1932L35.3174 6.6701C35.6043 7.96361 35.8136 9.06662 35.95 9.97913H36.0323C36.1264 9.32532 36.3381 8.22937 36.665 6.68892L37.8291 1.41846H40.6278L37.3799 13.0036V18.561H34.6001V13.0036H34.6024Z" fill="#282828"/>
+                <path d="M41.4697 18.1937C40.9053 17.8896 40.5031 17.22 40.5031 16.1817V13.3688C40.5031 12.2894 40.9336 11.6387 41.7944 11.4289C42.6553 11.2192 43.9821 11.0983 45.2604 11.0983C47.7431 11.0983 49.0697 11.7666 49.0697 13.1032V18.561H46.6967V17.9798H46.6145C46.1241 18.9201 45.2604 19.4062 44.0219 19.4062C42.7835 19.4062 41.4697 18.1937 41.4697 18.1937ZM46.6967 16.4757V14.7435C46.6967 14.1703 46.5244 13.8062 46.1798 13.6515C45.8352 13.4968 45.1669 13.419 44.1748 13.419C43.6391 13.419 43.2369 13.6614 43.2369 14.1462V16.3242C43.2369 16.8091 43.6391 17.0515 44.4429 17.0515C45.2467 17.0515 45.6489 16.8091 45.9358 16.3242C46.2226 15.8394 46.3949 15.3546 46.6143 14.8697L46.6967 16.4757Z" fill="#282828"/>
+              </g>
+            </svg>
+          </div>
+          <h1 class="title">RAG Chatbot</h1>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
     </header>
 
     <section class="video-section">
-      <form id="videoForm">
-        <input type="text" id="videoUrl" placeholder="Paste a YouTube link to begin..." required>
-        <button type="submit">Train Bot</button>
+      <form id="videoForm" class="video-form">
+        <div class="input-group">
+          <input
+            type="text"
+            id="videoUrl"
+            class="video-input"
+            placeholder="Paste a YouTube link to begin..."
+            required
+          >
+          <button type="submit" class="train-button">
+            <span class="button-text">Train Bot</span>
+            <div class="loading-spinner" style="display: none;">
+              <div class="spinner"></div>
+            </div>
+          </button>
+        </div>
       </form>
-      <div id="status"></div>
+      <div id="status" class="status-message"></div>
     </section>
 
     <section class="chat-section">
       <div id="chatContainer" class="chat-container">
-          <div class="msg-container bot-container">
-              <div class="avatar">🤖</div>
-              <div class="msg bot">Hello! I'm ready to chat about any YouTube video. Just paste a link above to get started.</div>
+        <div class="message-container bot-message">
+          <div class="avatar bot-avatar">🤖</div>
+          <div class="message-content">
+            <div class="message-bubble bot-bubble">
+              Hello! I'm ready to chat about any YouTube video. Just paste a link above to get started.
+            </div>
           </div>
+        </div>
       </div>
     </section>
 
-    <form id="chatForm" class="chat-input-bar" style="display:none;">
-      <input type="text" id="userInput" placeholder="Send a message..." required autocomplete="off">
-      <button type="submit" title="Send message">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-      </button>
+    <form id="chatForm" class="chat-input-section" style="display: none;">
+      <div class="chat-input-container">
+        <input
+          type="text"
+          id="userInput"
+          class="chat-input"
+          placeholder="Send a message..."
+          required
+          autocomplete="off"
+        >
+        <button type="submit" class="send-button" title="Send message">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+          </svg>
+        </button>
+      </div>
     </form>
   </div>
 
