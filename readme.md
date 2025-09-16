@@ -26,7 +26,6 @@ Frontend is a ChatGPT-style chat UI (YouTube-themed). Backend is a FastAPI app t
 
 ```
 Youtube_Chatbot/
-├─ .env
 ├─ .gitignore
 ├─ requirements.txt
 ├─ main.py               # FastAPI app (routes + static/template mount)
