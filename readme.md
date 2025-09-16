@@ -18,7 +18,6 @@ Frontend is a ChatGPT-style chat UI (YouTube-themed). Backend is a FastAPI app t
 - Smooth message animations, auto-scroll, auto-resizable input.
 - Dark/light mode persisted to `localStorage`.
 - Real-time YouTube URL validation and paste detection.
-- Keyboard shortcuts: **Enter** to send, **Shift+Enter** newline, **Escape** to clear.
 
 ---
 
