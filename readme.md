@@ -31,7 +31,6 @@ Youtube_Chatbot/
 ├─ requirements.txt
 ├─ main.py               # FastAPI app (routes + static/template mount)
 ├─ rag_pipeline.py       # transcript fetch, chunking, embeddings, FAISS, chat
-├─ chatbot.ipynb         # optional: development notebook
 ├─ templates/
 │  └─ index.html         # frontend template
 ├─ static/
